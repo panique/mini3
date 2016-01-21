@@ -1,6 +1,10 @@
 <?php
 
-class Controller
+namespace Mini\Core;
+
+use PDO;
+
+class Model
 {
     /**
      * @var null Database Connection
@@ -8,17 +12,15 @@ class Controller
     public $db = null;
 
     /**
-     * @var null Model
-     */
-    public $model = null;
-
-    /**
-     * Whenever controller is created, open a database connection too and load "the model".
+     * Whenever model is created, open a database connection.
      */
     function __construct()
     {
-        $this->openDatabaseConnection();
-        $this->loadModel();
+        try {
+            self::openDatabaseConnection();
+        } catch (PDOException $e) {
+            exit('Database connection could not be established.');
+        }
     }
 
     /**
@@ -35,16 +37,5 @@ class Controller
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
         $this->db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);
-    }
-
-    /**
-     * Loads the "model".
-     * @return object model
-     */
-    public function loadModel()
-    {
-        require APP . 'model/model.php';
-        // create new "model" (and pass the database connection)
-        $this->model = new Model($this->db);
     }
 }

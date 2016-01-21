@@ -31,6 +31,7 @@ if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
  *
  * URL_DOMAIN:
  * The domain. Don't change unless you know exactly what you do.
+ * If your project runs with http and https, change to '//'
  *
  * URL_SUB_FOLDER:
  * The sub-folder. Leave it like it is, even if you don't use a sub-folder (then this will be just "/").
@@ -53,6 +54,6 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
 define('DB_TYPE', 'mysql');
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'mini');
-define('DB_USER', 'root');
-define('DB_PASS', 'your_password');
+define('DB_USER', 'mini');
+define('DB_PASS', 'mini');
 define('DB_CHARSET', 'utf8');

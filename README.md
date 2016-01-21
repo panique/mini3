@@ -24,48 +24,49 @@ For a deeper introduction into MINI have a look into this blog post:
 - uses PDO for any database requests, comes with an additional PDO debug tool to emulate your SQL statements
 - commented code
 - uses only native PHP code, so people don't have to learn a framework
+- uses PSR-4 autoloader, then you can instantiate any class
 
 ## Forks of MINI
 
 ### TINY
- 
-MINI has a smaller brother, named [TINY](https://github.com/panique/tiny). It's similar to MINI, but runs without 
+
+MINI has a smaller brother, named [TINY](https://github.com/panique/tiny). It's similar to MINI, but runs without
 mod_rewrite in nearly every environment. Not suitable for live sites, but nice for quick prototyping.
- 
-### MINI2 
- 
-MINI also has a bigger brother, named [MINI2](https://github.com/panique/mini2). It's even simpler, has been built 
+
+### MINI2
+
+MINI also has a bigger brother, named [MINI2](https://github.com/panique/mini2). It's even simpler, has been built
 using Slim and has nice features like SASS-compiling, Twig etc.
 
 ## Requirements
 
 - PHP 5.3.0+
 - MySQL
-- mod_rewrite activated (tutorials below, but there's also [TINY](https://github.com/panique/tiny), a mod_rewrite-less 
+- mod_rewrite activated (tutorials below, but there's also [TINY](https://github.com/panique/tiny), a mod_rewrite-less
 version of MINI)
 
 ## Installation (in Vagrant, 100% automatic)
 
 If you are using Vagrant for your development, then you can install MINI with one click (or one command on the
-command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI comes with a demo 
-Vagrant-file (defines your Vagrant box) and a demo bootstrap.sh which automatically installs Apache, PHP, MySQL, 
-PHPMyAdmin, git and Composer, sets a chosen password in MySQL and PHPMyadmin and even inside the application code, 
+command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI comes with a demo
+Vagrant-file (defines your Vagrant box) and a demo bootstrap.sh which automatically installs Apache, PHP, MySQL,
+PHPMyAdmin, git and Composer, sets a chosen password in MySQL and PHPMyadmin and even inside the application code,
 downloads the Composer-dependencies, activates mod_rewrite and edits the Apache settings, downloads the code from GitHub
-and runs the demo SQL statements (for demo data). This is 100% automatic, you'll end up after +/- 5 minutes with a fully 
+and runs the demo SQL statements (for demo data). This is 100% automatic, you'll end up after +/- 5 minutes with a fully
 running installation of MINI2 inside an Ubuntu 14.04 LTS Vagrant box.
 
-To do so, put `Vagrantfile` and `bootstrap.sh` from `_vagrant` inside a folder (and nothing else). 
-Do `vagrant box add ubuntu/trusty64` to add Ubuntu 14.04 LTS ("Trusty Thar") 64bit to Vagrant (unless you already have 
-it), then do `vagrant up` to run the box. When installation is finished you can directly use the fully installed demo 
-app on `192.168.33.44`. As this just a quick demo environment the MySQL root password and the PHPMyAdmin root password 
+To do so, put `Vagrantfile` and `bootstrap.sh` from `_vagrant` inside a folder (and nothing else).
+Do `vagrant box add ubuntu/trusty64` to add Ubuntu 14.04 LTS ("Trusty Thar") 64bit to Vagrant (unless you already have
+it), then do `vagrant up` to run the box. When installation is finished you can directly use the fully installed demo
+app on `192.168.33.44`. As this just a quick demo environment the MySQL root password and the PHPMyAdmin root password
 are set to `12345678`, the project is installed in `/var/www/html/myproject`. You can change this for sure inside
 `bootstrap.sh`.
 
 ## Auto-Installation on Ubuntu 14.04 LTS (in 30 seconds)
 
-You can install MINI including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and 
-even the passwords inside the configs file by simply downloading one file and executing it, the entire installation 
-will run 100% automatically. Find the tutorial in this blog article: 
+You can install MINI including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and
+even the passwords inside the configs file by simply downloading one file and executing it, the entire installation
+will run 100% automatically. Find the tutorial in this blog article:
 [Install MINI in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
 
 ## Installation
@@ -80,7 +81,7 @@ will run 100% automatically. Find the tutorial in this blog article:
    [XAMPP for Windows](http://www.leonardaustin.com/blog/technical/enable-mod_rewrite-in-xampp/),
    [MAMP on Mac OS](http://stackoverflow.com/questions/7670561/how-to-get-htaccess-to-work-on-mamp)
 
-MINI runs without any further configuration. You can also put it inside a sub-folder, it will work without any 
+MINI runs without any further configuration. You can also put it inside a sub-folder, it will work without any
 further configuration.
 Maybe useful: A simple tutorial on [How to install LAMPP (Linux, Apache, MySQL, PHP, PHPMyAdmin) on Ubuntu 14.04 LTS](http://www.dev-metal.com/installsetup-basic-lamp-stack-linux-apache-mysql-php-ubuntu-14-04-lts/)
 and [the same for Ubuntu 12.04 LTS](http://www.dev-metal.com/setup-basic-lamp-stack-linux-apache-mysql-php-ubuntu-12-04/).
@@ -153,25 +154,25 @@ And by the way, I'm also blogging at [Dev Metal](http://www.dev-metal.com).
 
 #### The structure in general
 
-The application's URL-path translates directly to the controllers (=files) and their methods inside 
-application/controllers. 
+The application's URL-path translates directly to the controllers (=files) and their methods inside
+application/controllers.
 
-`example.com/home/exampleOne` will do what the *exampleOne()* method in application/controllers/home.php says.
+`example.com/home/exampleOne` will do what the *exampleOne()* method in application/Controller/HomeController.php says.
 
-`example.com/home` will do what the *index()* method in application/controllers/home.php says.
+`example.com/home` will do what the *index()* method in application/Controller/HomeController.php says.
 
-`example.com` will do what the *index()* method in application/controllers/home.php says (default fallback).
+`example.com` will do what the *index()* method in application/Controller/HomeController.php says (default fallback).
 
-`example.com/songs` will do what the *index()* method in application/controllers/songs.php says.
+`example.com/songs` will do what the *index()* method in application/Controller/SongsController.php says.
 
-`example.com/songs/editsong/17` will do what the *editsong()* method in application/controllers/songs.php says and
+`example.com/songs/editsong/17` will do what the *editsong()* method in application/Controller/SongsController.php says and
 will pass `17` as a parameter to it.
 
 Self-explaining, right ?
 
 #### Showing a view
 
-Let's look at the exampleOne()-method in the home-controller (application/controllers/home.php): This simply shows
+Let's look at the exampleOne()-method in the home-controller (application/Controller/HomeController.php): This simply shows
 the header, footer and the example_one.php page (in views/home/). By intention as simple and native as possible.
 
 ```php
@@ -186,36 +187,51 @@ public function exampleOne()
 
 #### Working with data
 
-Let's look into the index()-method in the songs-controller (application/controllers/songs.php): Similar to exampleOne,
-but here we also request data. Again, everything is extremely reduced and simple: $this->model->getAllSongs() simply
-calls the getAllSongs()-method in application/model/model.php.
+Let's look into the index()-method in the songs-controller (application/Controller/SongsController.php): Similar to exampleOne,
+but here we also request data. Again, everything is extremely reduced and simple: $Song->getAllSongs() simply
+calls the getAllSongs()-method in application/Model/Song.php (when $Song = new Song()).
 
 ```php
-public function index()
-{
-    // getting all songs and amount of songs
-    $songs = $this->model->getAllSongs();
-    $amount_of_songs = $this->model->getAmountOfSongs();
+namespace Mini\Controller
 
-   // load view. within the view files we can echo out $songs and $amount_of_songs easily
-    require APP . 'views/_templates/header.php';
-    require APP . 'views/songs/index.php';
-    require APP . 'views/_templates/footer.php';
+use Mini\Model\Song;
+
+class SongsController
+{
+    public function index()
+    {
+        // Instance new Model (Song)
+        $Song = new Song();
+        // getting all songs and amount of songs
+        $songs = $Song->getAllSongs();
+        $amount_of_songs = $Song->getAmountOfSongs();
+
+       // load view. within the view files we can echo out $songs and $amount_of_songs easily
+        require APP . 'views/_templates/header.php';
+        require APP . 'views/songs/index.php';
+        require APP . 'views/_templates/footer.php';
+    }
 }
 ```
 
-For extreme simplicity, all data-handling methods are in application/model/model.php. This is for sure not really
-professional, but the most simple implementation. Have a look how getAllSongs() in model.php looks like: Pure and
+For extreme simplicity, data-handling methods are in application/model/ClassName.php. Have a look how getAllSongs() in model.php looks like: Pure and
 super-simple PDO.
 
 ```php
-public function getAllSongs()
+namespace Mini\Model
+
+use Mini\Core\Model;
+
+class Song extends Model
 {
-    $sql = "SELECT id, artist, track, link FROM song";
-    $query = $this->db->prepare($sql);
-    $query->execute();
-    
-    return $query->fetchAll();
+    public function getAllSongs()
+    {
+        $sql = "SELECT id, artist, track, link FROM song";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
 }
 ```
 
@@ -242,8 +258,8 @@ about that - which is totally right!) I've renamed and rebuild the project.
 
 ... MINI is just a simple helper-tool I've created for my daily work, simply because it was much easier to setup and to
 handle than real frameworks. For daily agency work, quick prototyping and frontend-driven projects it's totally okay,
-does the job and there's absolutely no reason to discuss why it's "shit compared to Laravel", why it does not follow 
-several MVC principles or why there's no personal unpaid support or no russian translation or similar weird stuff. 
+does the job and there's absolutely no reason to discuss why it's "shit compared to Laravel", why it does not follow
+several MVC principles or why there's no personal unpaid support or no russian translation or similar weird stuff.
 The trolling against Open-Source-projects (and their authors) has really reached insane dimensions.
 
 I've written this unpaid, voluntarily, in my free-time and uploaded it on GitHub to share.
@@ -258,6 +274,10 @@ Please commit into the develop branch (which holds the in-development version), 
 
 ## Changelog
 
+**January 2016**
+
+- [joanoctus] implementing PSR-4 autoloader
+
 **February 2015**
 
 - [jeroenseegers] nginx setup configuration
@@ -265,7 +285,7 @@ Please commit into the develop branch (which holds the in-development version), 
 **December 2014**
 - [panique] css fixes
 - [panique] renamed controller / view to singular
-- [panique] added charset to PDO creation (increased security) 
+- [panique] added charset to PDO creation (increased security)
 
 **November 2014**
 - [panique] auto-install script for Vagrant

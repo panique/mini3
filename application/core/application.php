@@ -1,4 +1,6 @@
 <?php
+/** For more info about namespaces plase @see http://php.net/manual/en/language.namespaces.importing.php */
+namespace Mini\Core;
 
 class Application
 {
@@ -23,17 +25,16 @@ class Application
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 
-            require APP . 'controller/home.php';
-            $page = new Home();
+            $page = new \Mini\Controller\HomeController();
             $page->index();
 
-        } elseif (file_exists(APP . 'controller/' . $this->url_controller . '.php')) {
+        } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')) {
             // here we did check for controller: does such a controller exist ?
 
             // if so, then load this file and create this controller
-            // example: if controller would be "car", then this line would translate into: $this->car = new car();
-            require APP . 'controller/' . $this->url_controller . '.php';
-            $this->url_controller = new $this->url_controller();
+            // like \Mini\Controller\CarController
+            $controller = "\\Mini\\Controller\\" . ucfirst($this->url_controller) . 'Controller';
+            $this->url_controller = new $controller();
 
             // check for method: does such a method exist in the controller ?
             if (method_exists($this->url_controller, $this->url_action)) {
