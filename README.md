@@ -1,17 +1,15 @@
-[![MINI - A naked barebone PHP application](_install/mini.png)](http://www.php-mini.com)
+![MINI3 - A naked barebone PHP application](_install/mini3.png)]
 
-# MINI
+# MINI3
 
-MINI is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
-MINI is NOT a professional framework and it does not come with all the stuff real frameworks have.
+MINI3 is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
+MINI3 is NOT a professional framework and it does not come with all the stuff real frameworks have.
 If you just want to show some pages, do a few database calls and a little-bit of AJAX here and there, without
-reading in massive documentations of highly complex professional frameworks, then MINI might be very useful for you.
-MINI is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
+reading in massive documentations of highly complex professional frameworks, then MINI3 might be very useful for you.
+MINI3 is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
 
-For a deeper introduction into MINI have a look into this blog post:
-[MINI, an extremely simple barebone PHP application](http://www.dev-metal.com/mini-extremely-simple-barebone-php-application/).
-
-[![Support the project](_install/banner-host1plus.png)](https://affiliates.host1plus.com/ref/devmetal/36f4d828.html)
+MINI (original version) and MINI2 (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
+of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big thanks, man! :)
 
 ## Features
 
@@ -20,32 +18,21 @@ For a deeper introduction into MINI have a look into this blog post:
 - makes "beautiful" clean URLs
 - demo CRUD actions: Create, Read, Update and Delete database entries easily
 - demo AJAX call
-- tries to follow PSR 1/2 coding guidelines
+- tries to follow PSR coding guidelines
 - uses PDO for any database requests, comes with an additional PDO debug tool to emulate your SQL statements
 - commented code
 - uses only native PHP code, so people don't have to learn a framework
-- uses PSR-4 autoloader, then you can instantiate any class
-
-## Forks of MINI
-
-### TINY
-
-MINI has a smaller brother, named [TINY](https://github.com/panique/tiny). It's similar to MINI, but runs without
-mod_rewrite in nearly every environment. Not suitable for live sites, but nice for quick prototyping.
-
-### MINI2
-
-MINI also has a bigger brother, named [MINI2](https://github.com/panique/mini2). It's even simpler, has been built
-using Slim and has nice features like SASS-compiling, Twig etc.
+- uses PSR-4 autoloader
 
 ## Requirements
 
-- PHP 5.3.0+
+- PHP 5.6 or PHP 7.0
 - MySQL
-- mod_rewrite activated (tutorials below, but there's also [TINY](https://github.com/panique/tiny), a mod_rewrite-less
-version of MINI)
+- mod_rewrite activated
 
 ## Installation (in Vagrant, 100% automatic)
+
+*TODO - what you see is from the old MINI1 version, please give us some weeks to adapt to MINI3*
 
 If you are using Vagrant for your development, then you can install MINI with one click (or one command on the
 command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI comes with a demo
@@ -63,6 +50,8 @@ are set to `12345678`, the project is installed in `/var/www/html/myproject`. Yo
 `bootstrap.sh`.
 
 ## Auto-Installation on Ubuntu 14.04 LTS (in 30 seconds)
+
+*TODO - what you see is from the old MINI1 version, please give us some weeks to adapt to MINI3*
 
 You can install MINI including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and
 even the passwords inside the configs file by simply downloading one file and executing it, the entire installation
@@ -123,7 +112,7 @@ are using extremely outdated MySQL versions).
 
 ## Goodies
 
-MINI comes with a little customized [PDO debugger tool](https://github.com/panique/pdo-debug) (find the code in
+MINI3 comes with a little customized [PDO debugger tool](https://github.com/panique/pdo-debug) (find the code in
 application/libs/helper.php), trying to emulate your PDO-SQL statements. It's extremely easy to use:
 
 ```php
@@ -140,15 +129,6 @@ $query->execute($parameters);
 
 This project is licensed under the MIT License.
 This means you can use and modify it for free in private or commercial projects.
-
-## Support
-
-If you want to support MINI, then rent your next server at [Host1Plus](https://affiliates.host1plus.com/ref/devmetal/36f4d828.html).
-Thanks! :)
-
-## My blog
-
-And by the way, I'm also blogging at [Dev Metal](http://www.dev-metal.com).
 
 ## Quick-Start
 
@@ -249,30 +229,16 @@ inside the view files (in this case application/views/songs/index.php, in a simp
 </tbody>
 ```
 
-## History
-
-MINI is the successor of php-mvc. As php-mvc didn't provide a real MVC structure (and several people complained
-about that - which is totally right!) I've renamed and rebuild the project.
-
-## Dear haters, trolls and everything-sucks-people...
-
-... MINI is just a simple helper-tool I've created for my daily work, simply because it was much easier to setup and to
-handle than real frameworks. For daily agency work, quick prototyping and frontend-driven projects it's totally okay,
-does the job and there's absolutely no reason to discuss why it's "shit compared to Laravel", why it does not follow
-several MVC principles or why there's no personal unpaid support or no russian translation or similar weird stuff.
-The trolling against Open-Source-projects (and their authors) has really reached insane dimensions.
-
-I've written this unpaid, voluntarily, in my free-time and uploaded it on GitHub to share.
-It's totally free, for private and commercial use. If you don't like it, don't use it.
-If you see issues, then please write a ticket (and if you are really cool: I'm very thankful for any commits!).
-But don't bash, don't complain, don't hate. Only bad people do so.
-
 ## Contribute
 
 Please commit into the develop branch (which holds the in-development version), not into master branch
 (which holds the tested and stable version).
 
 ## Changelog
+
+**August 2016**
+
+- [panique] forking joanoctus's excellent PSR4 ersion of MINI to MINI3
 
 **January 2016**
 
@@ -332,4 +298,6 @@ Please commit into the develop branch (which holds the in-development version), 
 **January 2014**
 - [panique] fixed .htaccess issue when there's a controller named "index" and a base index.php (which collide)
 
-[![Support the project](_install/banner-host1plus.png)](https://affiliates.host1plus.com/ref/devmetal/36f4d828.html)
+## Other stuff
+
+And by the way, I'm also blogging at [Dev Metal](http://www.dev-metal.com) :)

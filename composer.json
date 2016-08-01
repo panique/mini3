@@ -1,11 +1,11 @@
 {
-    "name": "panique/mini",
-    "description": "MINI - an extremely simple naked PHP application",
+    "name": "panique/mini3",
+    "description": "MINI3 - an extremely simple naked PHP application",
     "type": "project",
     "license": "MIT",
     "authors": [
         {
-            "name": "Chris Panique",
+            "name": "Panique",
             "email": "panique@firemail.de"
         },
         {
