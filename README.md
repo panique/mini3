@@ -32,15 +32,13 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 
 ## Installation (in Vagrant, 100% automatic)
 
-*TODO - what you see is from the old MINI1 version, please give us some weeks to adapt to MINI3*
-
-If you are using Vagrant for your development, then you can install MINI with one click (or one command on the
-command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI comes with a demo
+If you are using Vagrant for your development, then you can install MINI3 with one click (or one command on the
+command line) [[Vagrant doc](https://docs.vagrantup.com/v2/getting-started/provisioning.html)]. MINI3 comes with a demo
 Vagrant-file (defines your Vagrant box) and a demo bootstrap.sh which automatically installs Apache, PHP, MySQL,
 PHPMyAdmin, git and Composer, sets a chosen password in MySQL and PHPMyadmin and even inside the application code,
 downloads the Composer-dependencies, activates mod_rewrite and edits the Apache settings, downloads the code from GitHub
 and runs the demo SQL statements (for demo data). This is 100% automatic, you'll end up after +/- 5 minutes with a fully
-running installation of MINI2 inside an Ubuntu 14.04 LTS Vagrant box.
+running installation of MINI3 inside an Ubuntu 14.04 LTS Vagrant box.
 
 To do so, put `Vagrantfile` and `bootstrap.sh` from `_vagrant` inside a folder (and nothing else).
 Do `vagrant box add ubuntu/trusty64` to add Ubuntu 14.04 LTS ("Trusty Thar") 64bit to Vagrant (unless you already have
@@ -51,12 +49,11 @@ are set to `12345678`, the project is installed in `/var/www/html/myproject`. Yo
 
 ## Auto-Installation on Ubuntu 14.04 LTS (in 30 seconds)
 
-*TODO - what you see is from the old MINI1 version, please give us some weeks to adapt to MINI3*
-
-You can install MINI including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and
+You can install MINI3 including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, Composer, all necessary settings and
 even the passwords inside the configs file by simply downloading one file and executing it, the entire installation
-will run 100% automatically. Find the tutorial in this blog article:
-[Install MINI in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
+will run 100% automatically. If you are stuck somehow, also have a look into this tutorial for the original MINI1,
+it's basically the same installation process:
+[Install MINI3 in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
 
 ## Installation
 
@@ -69,8 +66,10 @@ will run 100% automatically. Find the tutorial in this blog article:
    [AMPPS on Windows/Mac OS](http://www.softaculous.com/board/index.php?tid=3634&title=AMPPS_rewrite_enable/disable_option%3F_please%3F),
    [XAMPP for Windows](http://www.leonardaustin.com/blog/technical/enable-mod_rewrite-in-xampp/),
    [MAMP on Mac OS](http://stackoverflow.com/questions/7670561/how-to-get-htaccess-to-work-on-mamp)
+   
+Feel free to commit your guideline for Ubuntu 16.04 LTS or other linuxes to the list!  
 
-MINI runs without any further configuration. You can also put it inside a sub-folder, it will work without any
+MINI3 runs without any further configuration. You can also put it inside a sub-folder, it will work without any
 further configuration.
 Maybe useful: A simple tutorial on [How to install LAMPP (Linux, Apache, MySQL, PHP, PHPMyAdmin) on Ubuntu 14.04 LTS](http://www.dev-metal.com/installsetup-basic-lamp-stack-linux-apache-mysql-php-ubuntu-14-04-lts/)
 and [the same for Ubuntu 12.04 LTS](http://www.dev-metal.com/setup-basic-lamp-stack-linux-apache-mysql-php-ubuntu-12-04/).
