@@ -77,3 +77,13 @@ body {
     background-color: #222;
     color: #fff;
 }
+.footer {
+    border-radius: 3px;
+    padding: 20px;
+    margin: 33px;
+    text-align: right;
+    font-size: 11px;
+}
+.footer a {
+    color: #454545;
+}
