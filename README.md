@@ -8,7 +8,7 @@ If you just want to show some pages, do a few database calls and a little-bit of
 reading in massive documentations of highly complex professional frameworks, then MINI3 might be very useful for you.
 MINI3 is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
 
-MINI (original version) and MINI2 (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
+[MINI](https://github.com/panique/mini) (original version) and [MINI2](https://github.com/panique/mini2) (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
 of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big thanks, man! :)
 
 ## Features
