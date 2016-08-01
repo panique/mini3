@@ -28,7 +28,7 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 
 - PHP 5.6 or PHP 7.0
 - MySQL
-- mod_rewrite activated
+- mod_rewrite activated (see below for tutorials)
 
 ## Installation (in Vagrant, 100% automatic)
 
@@ -55,7 +55,7 @@ will run 100% automatically. If you are stuck somehow, also have a look into thi
 it's basically the same installation process:
 [Install MINI3 in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
 
-## Manuel installation
+## Manual Installation
 
 1. Edit the database credentials in `application/config/config.php`
 2. Execute the .sql statements in the `_install/`-folder (with PHPMyAdmin for example).
@@ -66,7 +66,7 @@ it's basically the same installation process:
    [AMPPS on Windows/Mac OS](http://www.softaculous.com/board/index.php?tid=3634&title=AMPPS_rewrite_enable/disable_option%3F_please%3F),
    [XAMPP for Windows](http://www.leonardaustin.com/blog/technical/enable-mod_rewrite-in-xampp/),
    [MAMP on Mac OS](http://stackoverflow.com/questions/7670561/how-to-get-htaccess-to-work-on-mamp)
-4. Run `composer install` in the project's folder to create the PSR-4 autoloading stuff from Composer automatically.
+4. Install composer and run `composer install` in the project's folder to create the PSR-4 autoloading stuff from Composer automatically.
    If you have no idea what this means: Remember the "good" old times when we were using "include file.php" all over our projects to include and use something ?
    PSR-0/4 is the modern, clean and automatic version of that. Please have a google research if that's important for you.  
    
@@ -216,7 +216,7 @@ class SongsController
         $songs = $Song->getAllSongs();
         $amount_of_songs = $Song->getAmountOfSongs();
 
-       // load view. within the view files we can echo out $songs and $amount_of_songs easily
+        // load view. within the view files we can echo out $songs and $amount_of_songs easily
         require APP . 'views/_templates/header.php';
         require APP . 'views/songs/index.php';
         require APP . 'views/_templates/footer.php';
