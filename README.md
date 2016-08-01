@@ -55,7 +55,7 @@ will run 100% automatically. If you are stuck somehow, also have a look into thi
 it's basically the same installation process:
 [Install MINI3 in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
 
-## Installation
+## Manuel installation
 
 1. Edit the database credentials in `application/config/config.php`
 2. Execute the .sql statements in the `_install/`-folder (with PHPMyAdmin for example).
@@ -66,6 +66,9 @@ it's basically the same installation process:
    [AMPPS on Windows/Mac OS](http://www.softaculous.com/board/index.php?tid=3634&title=AMPPS_rewrite_enable/disable_option%3F_please%3F),
    [XAMPP for Windows](http://www.leonardaustin.com/blog/technical/enable-mod_rewrite-in-xampp/),
    [MAMP on Mac OS](http://stackoverflow.com/questions/7670561/how-to-get-htaccess-to-work-on-mamp)
+4. Run `composer install` in the project's folder to create the PSR-4 autoloading stuff from Composer automatically.
+   If you have no idea what this means: Remember the "good" old times when we were using "include file.php" all over our projects to include and use something ?
+   PSR-0/4 is the modern, clean and automatic version of that. Please have a google research if that's important for you.  
    
 Feel free to commit your guideline for Ubuntu 16.04 LTS or other linuxes to the list!  
 
@@ -108,6 +111,34 @@ The script makes use of mod_rewrite and blocks all access to everything outside 
 Your .git folder/files, operating system temp files, the application-folder and everything else is not accessible
 (when set up correctly). For database requests PDO is used, so no need to think about SQL injection (unless you
 are using extremely outdated MySQL versions).
+
+## How to include stuff / use PSR-4
+
+As this project uses proper PSR-4 namespaces, make sure you load/use your stuff correctly:
+Instead of including classes with old-school code like `include xxx.php`, simply do something like `use Mini\Model\Song;` on top of your file (modern IDEs even do that automatically).
+This would automatically include the file *Song.php* from the folder *Mini/Model* (it's case-sensitive!).
+ 
+But wait, there's no `Mini/Model/Song.php` in the project, but a `application/Model/Song.php`, right ?
+To keep things cleaner, the composer.json sets a *namespace* (see code below), which is basically a name or an alias, for a certain folder / area of your application,
+in this case the folder `application` is now reachable via `Mini` when including stuff.
+
+```
+{
+    "psr-4":
+    {
+        "Mini\\" : "application/"
+    }
+}
+```
+
+This might look stupid at first, but comes in handy later. To sum it up:
+
+To load the file `application/Model/Song.php`, write a `use Mini\Model\Song;` on top of your controller file.
+Have a look into the SongController to get an idea how everything works!
+
+FYI: As decribed in the install tutorial, you'll need do perform a "composer install" when setting up your application for the first time, which will
+create a set of files (= the autoloader) inside /vendor folder. This is the normal way Composer handle this stuff. If you delete your vendor folder 
+the autoloading will not work anymore. If you change something in the composer.json, always make sure to run composer install/update again!
 
 ## Goodies
 
