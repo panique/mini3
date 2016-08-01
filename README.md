@@ -1,4 +1,4 @@
-![MINI3 - A naked barebone PHP application](_install/mini3.png)]
+![MINI3 - A naked barebone PHP application](_install/mini3.png)
 
 # MINI3
 
