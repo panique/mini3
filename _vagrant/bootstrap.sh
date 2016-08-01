@@ -53,23 +53,23 @@ sudo rm "/var/www/html/index.html"
 sudo apt-get -y install git
 
 # git clone MINI
-sudo git clone https://github.com/panique/mini "/var/www/html/${PROJECTFOLDER}"
+sudo git clone https://github.com/panique/mini3 "/var/www/html/${PROJECTFOLDER}"
 
-# install Composer (not necessary by default)
-#curl -s https://getcomposer.org/installer | php
-#mv composer.phar /usr/local/bin/composer
+# install Composer
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 
-# go to project folder, load Composer packages (not necessary by default)
-#cd "/var/www/html/${PROJECTFOLDER}"
-#composer install --dev
+# go to project folder, create the PSR4 autoloader with Composer
+cd "/var/www/html/${PROJECTFOLDER}"
+composer install
 
-# run SQL statements from MINI folder
+# run SQL statements from MINI3 folder
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/01-create-database.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/02-create-table-song.sql"
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/03-insert-demo-data-into-table-song.sql"
 
 # put the password into the application's config. This is quite hardcore, but why not :)
-sudo sed -i "s/your_password/${PASSWORD}/" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
+sudo sed -i "s/12345678/${PASSWORD}/" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
 
 # final feedback
 echo "Voila!"
