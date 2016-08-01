@@ -16,16 +16,13 @@
     </div>
     <!-- main content output -->
     <div class="box">
-        <h3>Amount of songs (data from second model)</h3>
-        <div>
-            <?php echo $amount_of_songs; ?>
-        </div>
+        <h3>Amount of songs: <?php echo $amount_of_songs; ?></h3>
         <h3>Amount of songs (via AJAX)</h3>
+        <div id="javascript-ajax-result-box"></div>
         <div>
-            <button id="javascript-ajax-button">Click here to get the amount of songs via Ajax (will be displayed in #javascript-ajax-result-box)</button>
-            <div id="javascript-ajax-result-box"></div>
+            <button id="javascript-ajax-button">Click here to get the amount of songs via Ajax (will be displayed in #javascript-ajax-result-box ABOVE)</button>
         </div>
-        <h3>List of songs (data from first model)</h3>
+        <h3>List of songs (data from model)</h3>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>

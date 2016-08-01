@@ -1,6 +1,7 @@
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     font-size: 14px;
+    color: #454545;
 }
 .logo {
     width: 200px;
@@ -21,15 +22,16 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     border: 1px solid #454545;
-    background: #454545;
-    color: #fff;
-}
-.navigation a:hover {
     color: #454545;
     background: transparent;
 }
+.navigation a:hover {
+    background: #454545;
+    color: #fff;
+}
 .container {
-    border: 1px solid #ddd;
+    border: 1px solid #454545;
+    border-radius: 3px;
     padding: 20px;
     margin: 33px;
 }
