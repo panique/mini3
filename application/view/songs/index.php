@@ -22,7 +22,7 @@
         <div>
             <button id="javascript-ajax-button">Click here to get the amount of songs via Ajax (will be displayed in #javascript-ajax-result-box ABOVE)</button>
         </div>
-        <h3>List of songs (data from first model)</h3>
+        <h3>List of songs (data from model)</h3>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>
