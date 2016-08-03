@@ -53,7 +53,7 @@ You can install MINI3 including Apache, MySQL, PHP and PHPMyAdmin, mod_rewrite, 
 even the passwords inside the configs file by simply downloading one file and executing it, the entire installation
 will run 100% automatically. If you are stuck somehow, also have a look into this tutorial for the original MINI1,
 it's basically the same installation process:
-[Install MINI3 in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
+[Install MINI in 30 seconds inside Ubuntu 14.04 LTS](http://www.dev-metal.com/install-mini-30-seconds-inside-ubuntu-14-04-lts/)
 
 ## Manual Installation
 
