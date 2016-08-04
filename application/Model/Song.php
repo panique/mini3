@@ -75,6 +75,7 @@ class Song extends Model
 
     /**
      * Get a song from database
+     * @param integer $song_id
      */
     public function getSong($song_id)
     {
