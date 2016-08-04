@@ -51,8 +51,7 @@ class Application
                 if (strlen($this->url_action) == 0) {
                     // no action defined: call the default index() method of a selected controller
                     $this->url_controller->index();
-                }
-                else {
+                } else {
                     header('location: ' . URL . 'error');
                 }
             }
