@@ -29,6 +29,7 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 - PHP 5.6 or PHP 7.0
 - MySQL
 - mod_rewrite activated (see below for tutorials)
+- basic knowledge of Composer for sure
 
 ## Installation (in Vagrant, 100% automatic)
 
