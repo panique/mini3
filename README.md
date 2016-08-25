@@ -269,6 +269,7 @@ Please commit into the develop branch (which holds the in-development version), 
 
 **August 2016**
 
+- [panique] fix for weird lowercase/uppercase path problem (also big thanks to @snickbit & @ugurozturk for the fix!)
 - [panique] forking joanoctus's excellent PSR4 ersion of MINI to MINI3
 
 **January 2016**
