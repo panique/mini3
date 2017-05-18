@@ -11,7 +11,7 @@
 
 namespace Mini\Controller;
 
-class HomeController
+class HomeController extends \Mini\Core\Application
 {
     /**
      * PAGE: index

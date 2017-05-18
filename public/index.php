@@ -35,3 +35,4 @@ use Mini\Core\Application;
 
 // start the application
 $app = new Application();
+$app->start();
