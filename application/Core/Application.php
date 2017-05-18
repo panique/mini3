@@ -17,7 +17,7 @@ class Application
      * "Start" the application:
      * Analyze the URL elements and calls the according controller/method or the fallback
      */
-    public function __construct()
+    public function start()
     {
         // create array with URL parts in $url
         $this->splitUrl();
@@ -25,7 +25,8 @@ class Application
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 
-            $page = new \Mini\Controller\HomeController();
+            $default_controller = "\\Mini\\Controller\\" . DEFAULT_CONTROLLER;
+            $page = new $default_controller();
             $page->index();
 
         } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')) {

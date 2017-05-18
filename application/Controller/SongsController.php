@@ -16,7 +16,7 @@ namespace Mini\Controller;
 
 use Mini\Model\Song;
 
-class SongsController
+class SongsController extends \Mini\Core\Application
 {
     /**
      * PAGE: index
