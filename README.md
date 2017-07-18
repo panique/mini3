@@ -92,7 +92,7 @@ server {
 
     location / {
         index index.php;
-        try_files /$uri /$uri/ /index.php?url=$uri;
+        try_files /$uri /$uri/ /index.php?url=$uri&$args;
     }
 
     location ~ \.(php)$ {
