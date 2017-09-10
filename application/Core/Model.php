@@ -34,18 +34,15 @@ class Model
         // @see http://www.php.net/manual/en/pdostatement.fetch.php
         $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
         
-        //Setting the encoding is different when using PostgreSQL
-        $enc_opt = "";
-        if(DB_TYPE=="pgsql")
-        {
-            $enc_opt=" options='--client_encoding=" . DB_CHARSET ."'";
+        // setting the encoding is different when using PostgreSQL
+        if (DB_TYPE == "pgsql") {
+            $databaseEncodingenc = " options='--client_encoding=" . DB_CHARSET . "'";
+        } else {
+            $databaseEncodingenc = "; charset=" . DB_CHARSET;
         }
-        else
-        {
-            $enc_opt="; charset=".DB_CHARSET;
-        }
+
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
-        $this->db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . $enc_opt, DB_USER, DB_PASS, $options);
+        $this->db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . $databaseEncodingenc, DB_USER, DB_PASS, $options);
     }
 }
