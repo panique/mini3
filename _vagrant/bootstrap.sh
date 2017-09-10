@@ -58,8 +58,7 @@ sudo apt-get -y install git
 sudo git clone https://github.com/panique/mini3 "/var/www/html/${PROJECTFOLDER}"
 
 # install Composer
-curl -s https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 # go to project folder, create the PSR4 autoloader with Composer
 cd "/var/www/html/${PROJECTFOLDER}"
