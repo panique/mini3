@@ -1,0 +1,3 @@
+steps:
+  - name: First text
+    plugin: LAMPApp

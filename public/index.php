@@ -1,4 +1,5 @@
 <?php
+echo "THIS IS MY BRANCH";
 
 /**
  * MINI - an extremely simple naked PHP application
