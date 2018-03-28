@@ -54,12 +54,12 @@ class Application
                     $this->url_controller->index();
                 } else {
                     $page = new \Mini\Controller\ErrorController();
-                    $page->errorPage();
+                    $page->index();
                 }
             }
         } else {
             $page = new \Mini\Controller\ErrorController();
-            $page->errorPage();
+            $page->index();
         }
     }
 
