@@ -97,11 +97,18 @@ class SongsController
 
             // in a real application we would also check if this db entry exists and therefore show the result or
             // redirect the user to an error page or similar
-
-            // load views. within the views we can echo out $song easily
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/songs/edit.php';
-            require APP . 'view/_templates/footer.php';
+            if (!$song)
+            {
+                $page = new \Mini\Controller\ErrorController();
+                $page->index();
+            }
+            else
+            {
+                // load views. within the views we can echo out $song easily
+                require APP . 'view/_templates/header.php';
+                require APP . 'view/songs/edit.php';
+                require APP . 'view/_templates/footer.php';
+            }
         } else {
             // redirect user to songs index page (as we don't have a song_id)
             header('location: ' . URL . 'songs/index');
