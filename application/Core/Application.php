@@ -53,11 +53,13 @@ class Application
                     // no action defined: call the default index() method of a selected controller
                     $this->url_controller->index();
                 } else {
-                    header('location: ' . URL . 'error');
+                    $page = new \Mini\Controller\ErrorController();
+                    $page->index();
                 }
             }
         } else {
-            header('location: ' . URL . 'error');
+            $page = new \Mini\Controller\ErrorController();
+            $page->index();
         }
     }
 
