@@ -28,8 +28,8 @@ class Application
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 
-            $page = new \Mini\Controller\HomeController();
-            $page->index();
+            $this->url_controller = new \Mini\Controller\HomeController();
+            $this->url_controller->index();
 
         } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')) {
             // here we did check for controller: does such a controller exist ?
@@ -56,8 +56,8 @@ class Application
                     // no action defined: call the default index() method of a selected controller
                     $this->url_controller->index();
                 } else {
-                    $page = new \Mini\Controller\ErrorController();
-                    $page->index();
+                    $this->url_controller = new \Mini\Controller\ErrorController();
+                    $this->url_controller->index();
                 }
             }
         } else {
@@ -69,8 +69,8 @@ class Application
                     call_user_func_array(array($this->url_controller, $this->url[0]), $this->url_params);
                 }
             } else {
-                $page = new \Mini\Controller\ErrorController();
-                $page->index();
+                $this->url_controller = new \Mini\Controller\ErrorController();
+                $this->url_controller->index();
             }
         }
     }
