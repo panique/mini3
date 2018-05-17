@@ -4,6 +4,9 @@ namespace Mini\Core;
 
 class Application
 {
+    /** @var null Parts of the URL, as provided and sanitized by splitURL() */
+    private $url = [];
+
     /** @var null The controller */
     private $url_controller = null;
 
@@ -58,8 +61,17 @@ class Application
                 }
             }
         } else {
-            $page = new \Mini\Controller\ErrorController();
-            $page->index();
+            $this->url_controller = new \Mini\Controller\HomeController();
+            if (method_exists($this->url_controller, $this->url[0])) {
+                if (isset($this->url_action)) {
+                    call_user_func_array(array($this->url_controller, $this->url[0]), array_merge([$this->url_action], $this->url_params));
+                } else {
+                    call_user_func_array(array($this->url_controller, $this->url[0]), $this->url_params);
+                }
+            } else {
+                $page = new \Mini\Controller\ErrorController();
+                $page->index();
+            }
         }
     }
 
@@ -73,19 +85,16 @@ class Application
             // split URL
             $url = trim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
-            $url = explode('/', $url);
+            $this->url = explode('/', $url);
 
             // Put URL parts into according properties
             // By the way, the syntax here is just a short form of if/else, called "Ternary Operators"
             // @see http://davidwalsh.name/php-shorthand-if-else-ternary-operators
-            $this->url_controller = isset($url[0]) ? $url[0] : null;
-            $this->url_action = isset($url[1]) ? $url[1] : null;
+            $this->url_controller = isset($this->url[0]) ? $this->url[0] : null;
+            $this->url_action = isset($this->url[1]) ? $this->url[1] : null;
 
-            // Remove controller and action from the split URL
-            unset($url[0], $url[1]);
-
-            // Rebase array keys and store the URL params
-            $this->url_params = array_values($url);
+            // Store the URL params
+            $this->url_params = array_slice($this->url, 2);
 
             // for debugging. uncomment this if you have problems with the URL
             //echo 'Controller: ' . $this->url_controller . '<br>';
