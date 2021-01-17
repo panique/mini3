@@ -96,7 +96,7 @@ class SongsController
             $song = $Song->getSong($song_id);
 
             // If the song wasn't found, then it would have returned false, and we need to display the error page
-            if ($song === false) {
+            if (!$song) {
                 $page = new \Mini\Controller\ErrorController();
                 $page->index();
             } else {
