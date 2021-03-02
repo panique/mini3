@@ -2,6 +2,8 @@
 /** For more info about namespaces plase @see http://php.net/manual/en/language.namespaces.importing.php */
 namespace Mini\Core;
 
+require APP . 'core/CoreFunctions.php';
+
 class Application
 {
     /** @var null The controller */
@@ -39,7 +41,7 @@ class Application
             // check for method: does such a method exist in the controller ?
             if (method_exists($this->url_controller, $this->url_action) &&
                 is_callable(array($this->url_controller, $this->url_action))) {
-                
+
                 if (!empty($this->url_params)) {
                     // Call the method and pass arguments to it
                     call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
