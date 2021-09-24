@@ -2,14 +2,11 @@
 
 namespace Mini\Controller;
 
-function view($path, $data = [])
+function view(string $file, array $data = [])
 {
-    foreach ($data as $k => $v) {
-        $$k = $v;
-    }
-    require APP . "view/{$path}";
+    extract($data);
+    require sprintf('%sview/%s.php', APP, $file);
 }
-
 
 function redirect($path) {
     header('location: ' . URL . $path);

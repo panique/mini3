@@ -190,9 +190,9 @@ the header, footer and the example_one.php page (in views/home/). By intention a
 public function exampleOne()
 {
     // load view
-    require APP . 'views/_templates/header.php';
-    require APP . 'views/home/example_one.php';
-    require APP . 'views/_templates/footer.php';
+    view('views/_templates/header');
+    view('views/home/example_one');
+    view('views/_templates/footer');
 }
 ```  
 
@@ -218,9 +218,9 @@ class SongsController
         $amount_of_songs = $Song->getAmountOfSongs();
 
         // load view. within the view files we can echo out $songs and $amount_of_songs easily
-        require APP . 'views/_templates/header.php';
-        require APP . 'views/songs/index.php';
-        require APP . 'views/_templates/footer.php';
+        view('views/_templates/header');
+        view('views/songs/index');
+        view('views/_templates/footer');
     }
 }
 ```
@@ -266,6 +266,10 @@ Please commit into the develop branch (which holds the in-development version), 
 (which holds the tested and stable version).
 
 ## Changelog
+
+**September 2021**
+
+- [iamrameffort] ♻️: Refactoring the `view` function and removing the extension from the view files in the controllers.
 
 **August 2016**
 
