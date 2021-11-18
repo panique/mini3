@@ -2,7 +2,7 @@
 /** For more info about namespaces plase @see http://php.net/manual/en/language.namespaces.importing.php */
 namespace Mini\Core;
 
-require APP . 'core/CoreFunctions.php';
+require APP . 'Core/CoreFunctions.php';
 
 class Application
 {
