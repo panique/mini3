@@ -2,6 +2,8 @@
 /** For more info about namespaces plase @see http://php.net/manual/en/language.namespaces.importing.php */
 namespace Mini\Core;
 
+require APP . 'Core/CoreFunctions.php';
+
 class Application
 {
     /** @var null The controller */
@@ -12,6 +14,11 @@ class Application
 
     /** @var array URL parameters */
     private $url_params = array();
+
+    /** @var object Query String (Key: Value pairs)
+     * Example: \Controller\action\?artist=Singer&track=Song&link=http://example.com
+     */
+    private $query_string = null;
 
     /**
      * "Start" the application:
@@ -34,7 +41,10 @@ class Application
             // if so, then load this file and create this controller
             // like \Mini\Controller\CarController
             $controller = "\\Mini\\Controller\\" . ucfirst($this->url_controller) . 'Controller';
-            $this->url_controller = new $controller();
+
+            // Construct the requested controller and pass in the $query_string variable as a parameter
+            // to the class constructor.
+            $this->url_controller = new $controller($this->query_string);
 
             // check for method: does such a method exist in the controller ?
             if (method_exists($this->url_controller, $this->url_action)) {
@@ -83,6 +93,22 @@ class Application
 
             // Rebase array keys and store the URL params
             $this->url_params = array_values($url);
+
+            if (isset($_SERVER['QUERY_STRING'])) {
+                // Parse the query string to retreive an array containing
+                // the URL and query string and assign it to a variable.
+                parse_str($_SERVER['QUERY_STRING'], $data);
+
+                // Remove the URL index from the array.
+                unset($data['url']);
+
+                // If the array is empty, no query string is present.
+                // Otherwise convert the array to an object and assign
+                // it to the $query_string variable.
+                if (!empty($data)) {
+                $this->query_string = (object) $data;
+                }
+            }
 
             // for debugging. uncomment this if you have problems with the URL
             //echo 'Controller: ' . $this->url_controller . '<br>';

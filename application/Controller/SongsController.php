@@ -18,6 +18,23 @@ use Mini\Model\Song;
 
 class SongsController
 {
+
+    /** @var object Query String (Key: Value pairs)
+     * Example: /Controller/action/?artist=Singer who Sings&track=Song of Awesomeness&link=http://example.com
+     */
+    private $query_string = null;
+
+    /**
+     * Class Constructor
+     * Accepts a $query_string object as a parameter or if none
+     * defaults it to null. Then assigns the object to the private
+     * $query_string variable.
+     */
+    function __construct($query_string = null)
+    {
+      $this->query_string = $query_string;
+    }
+
     /**
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/songs/index
@@ -56,6 +73,24 @@ class SongsController
 
         // where to go after song has been added
         header('location: ' . URL . 'songs/index');
+    }
+
+    /**
+     * ACTION: addSongFromQueryString
+     * This method handles what happens when you move to http://yourproject/songs/addsongFromQueryString
+     * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song (Using Ajax with Query String)" form on songs/index
+     * directs the ajax request. This method handles all the POST data from the query string
+     * This is an example of how to handle a POST request via JavaScript using Query Strings.
+     */
+    public function addSongFromQueryString()
+    {
+        // if we have POST data to create a new song entry
+        if (!empty((array)$this->query_string)) {
+            // Instance new Model (Song)
+            $Song = new Song();
+            // do addSong() in model/model.php
+            $Song->addSong($this->query_string->artist, $this->query_string->track, $this->query_string->link);
+        }
     }
 
     /**
