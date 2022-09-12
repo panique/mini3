@@ -37,7 +37,7 @@ class Application
             $this->url_controller = new $controller();
 
             // check for method: does such a method exist in the controller ?
-            if (method_exists($this->url_controller, $this->url_action)) {
+            if (method_exists($this->url_controller, (string) $this->url_action)) {
 
                 if (!empty($this->url_params)) {
                     // Call the method and pass arguments to it
@@ -48,7 +48,7 @@ class Application
                 }
 
             } else {
-                if (strlen($this->url_action) == 0) {
+                if (empty($this->url_action)) {
                     // no action defined: call the default index() method of a selected controller
                     $this->url_controller->index();
                 } else {

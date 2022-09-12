@@ -3,10 +3,11 @@
 # MINI3
 
 MINI3 is an extremely simple and easy to understand skeleton PHP application, reduced to the max.
-MINI3 is NOT a professional framework and it does not come with all the stuff real frameworks have.
+MINI3 is NOT a professional framework and does not come with all the stuff real frameworks have.
 If you just want to show some pages, do a few database calls and a little-bit of AJAX here and there, without
 reading in massive documentations of highly complex professional frameworks, then MINI3 might be very useful for you.
 MINI3 is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
+
 
 [MINI](https://github.com/panique/mini) (original version) and [MINI2](https://github.com/panique/mini2) (used Slim router) were built by me (panique), MINI3 is an excellent and improved version
 of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big thanks, man! :)
@@ -24,12 +25,33 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 - uses only native PHP code, so people don't have to learn a framework
 - uses PSR-4 autoloader
 
-## Requirements
+## Requirements (but it's auto-installed)
 
-- PHP 5.6 or PHP 7.0
+- PHP 8
 - MySQL
-- mod_rewrite activated (see below for tutorials)
 - basic knowledge of Composer for sure
+- for auto-installation: VirtualBox, Vagrant
+
+## Installation (in Vagrant, 100% automatic)
+
+To keep things super-simple, we are using Vagrant here, a simple technology to run virtual machines for development.
+It's outdated, but does the job, and is much easier to understand than Docker. Just install VirtualBox, Vagrant, then
+copy this repo's code to a folder, go to that folder and type:
+
+```bash
+vagrant up
+```
+
+This will create a virtual machine with the configs given in `Vagrantfile`: It will create an Ubuntu 2022.04 Jammy64
+VM with 1024MB RAM, sync the current folder to `/var/www/html` inside the VM, make the VM available on the IP
+`192.168.56.77` and start the bash script `bootstrap.sh`, which is just a set of commands that will install all 
+necessary software.
+
+If the auto-installer is finished, go to http://192.168.56.77 in your browser and click around a bit ;)
+
+# OLD INSTALLATION TUTORIALS FROM 2016
+
+Below you'll find installation tutorial for the old version of MINI3 from 2016.
 
 ## Installation (in Vagrant, 100% automatic)
 
