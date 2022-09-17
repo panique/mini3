@@ -358,4 +358,4 @@ And by the way, I'm also blogging at [Dev Metal](http://www.dev-metal.com) :)
 
 ## Support the project
 
-Rent your next server at [1&1](http://www.kqzyfj.com/click-8225476-12015878-1477926464000) to support this open source project.
+<a href="https://www.buymeacoffee.com/panique" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

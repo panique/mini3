@@ -1,7 +1,8 @@
 
     <div class="footer">
         Find <a href="https://github.com/panique/mini3">MINI3 on GitHub</a>.
-        If you like the project, support it by <a href="http://tracking.rackspace.com/SH1ES">using Rackspace</a> as your hoster [affiliate link].
+        <div style="margin-bottom: 20px">If you like the project, feel free to buy me a coffee by clicking the yellow button ;)</div>
+        <a href="https://www.buymeacoffee.com/panique" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
     </div>
 
     <!-- jQuery, loaded in the recommended protocol-less way -->
