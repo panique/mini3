@@ -32,6 +32,10 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 - basic knowledge of Composer for sure
 - for auto-installation: VirtualBox, Vagrant
 
+## Forks
+
+There are some nice upgraded versions of this mini framework, check it out at https://github.com/ribafs/php-router
+
 ## Installation (in Vagrant, 100% automatic)
 
 To keep things super-simple, we are using Vagrant here, a simple technology to run virtual machines for development.
