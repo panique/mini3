@@ -22,7 +22,7 @@ class SongsController
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/songs/index
      */
-    public function index()
+    public function index(): void
     {
         // Instance new Model (Song)
         $Song = new Song();
@@ -44,7 +44,7 @@ class SongsController
      * the user back to songs/index via the last line: header(...)
      * This is an example of how to handle a POST request.
      */
-    public function addSong()
+    public function addSong(): void
     {
         // if we have POST data to create a new song entry
         if (isset($_POST["submit_add_song"])) {
@@ -65,9 +65,9 @@ class SongsController
      * directs the user after the click. This method handles all the data from the GET request (in the URL!) and then
      * redirects the user back to songs/index via the last line: header(...)
      * This is an example of how to handle a GET request.
-     * @param int $song_id Id of the to-delete song
+     * @param ?int $song_id Id of the to-delete song
      */
-    public function deleteSong($song_id)
+    public function deleteSong(?int $song_id): void
     {
         // if we have an id of a song that should be deleted
         if (isset($song_id)) {
@@ -84,9 +84,9 @@ class SongsController
      /**
      * ACTION: editSong
      * This method handles what happens when you move to http://yourproject/songs/editsong
-     * @param int $song_id Id of the to-edit song
+     * @param ?int $song_id Id of the to-edit song
      */
-    public function editSong($song_id)
+    public function editSong(?int $song_id): void
     {
         // if we have an id of a song that should be edited
         if (isset($song_id)) {
@@ -116,7 +116,7 @@ class SongsController
      * the user back to songs/index via the last line: header(...)
      * This is an example of how to handle a POST request.
      */
-    public function updateSong()
+    public function updateSong(): void
     {
         // if we have POST data to create a new song entry
         if (isset($_POST["submit_update_song"])) {
@@ -134,7 +134,7 @@ class SongsController
      * AJAX-ACTION: ajaxGetStats
      * TODO documentation
      */
-    public function ajaxGetStats()
+    public function ajaxGetStats(): void
     {
         // Instance new Model (Song)
         $Song = new Song();
