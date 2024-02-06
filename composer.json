@@ -1,7 +1,9 @@
 {
     "name": "panique/mini3",
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": ">=8.2"
+    },
     "autoload":
     {
         "psr-4":
