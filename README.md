@@ -27,7 +27,7 @@ of the original MINI, made by [JaoNoctus](https://github.com/JaoNoctus). Big tha
 
 ## Requirements (but it's auto-installed)
 
-- PHP 8
+- PHP 8.2 and higher
 - MySQL
 - basic knowledge of Composer for sure
 - for auto-installation: VirtualBox, Vagrant
