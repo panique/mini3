@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # php
-sudo apt install -y php8.1-fpm
+sudo apt install -y php8.2-fpm
 # php modules
 sudo apt install -y php-xml
 sudo apt install -y php-mbstring
@@ -25,7 +25,7 @@ sudo systemctl restart nginx
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
 sudo apt-get install -y mysql-server
-sudo apt-get install -y php8.1-mysql
+sudo apt-get install -y php8.2-mysql
 
 # run SQL statements
 sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/_install/mysql/01-create-database.sql"
