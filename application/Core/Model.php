@@ -17,7 +17,7 @@ class Model
     function __construct()
     {
         try {
-            self::openDatabaseConnection();
+            $this->openDatabaseConnection();
         } catch (\PDOException $e) {
             exit('Database connection could not be established.');
         }
@@ -33,6 +33,13 @@ class Model
         // For example, fetch mode FETCH_ASSOC would return results like this: $result["user_name] !
         // @see http://www.php.net/manual/en/pdostatement.fetch.php
         $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
+
+        // setting the encoding is different when using PostgreSQL
+        if (DB_TYPE == "pgsql") {
+            $databaseEncodingenc = " options='--client_encoding=" . DB_CHARSET . "'";
+        } else {
+            $databaseEncodingenc = "; charset=" . DB_CHARSET;
+        }
 
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/

@@ -36,4 +36,29 @@ $(function() {
         });
     }
 
+
+    // if #submit_add_song_button exists
+    if ($('#submit_add_song_button').length !== 0) {
+
+        $('#submit_add_song_button').on('click', () => {
+            let artist = document.getElementById('artist')
+            let track = document.getElementById('track')
+            let link = document.getElementById('link')
+
+            // send an ajax-request to this URL: current-server.com/songs/ajaxGetStats
+            // "url" is defined in views/_templates/footer.php
+            $.ajax({
+                url: `${url}/songs/addSongFromQueryString/?artist=${artist.value}&track=${track.value}&link=${link.value}`,
+                success: () => {
+                    console.log('Ajax request succeeded.')
+
+                    // Reload the page on success
+                    window.location.reload()
+                },
+                fail: () => {
+                    console.log('Some error handling.')
+                }
+            })
+        });
+    }
 });

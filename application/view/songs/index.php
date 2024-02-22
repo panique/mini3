@@ -13,6 +13,16 @@
             <input type="text" name="link" value="" />
             <input type="submit" name="submit_add_song" value="Submit" />
         </form>
+        <h3>Add a song (Using Ajax with Query String)</h3>
+        <form>
+            <label>Artist</label>
+            <input type="text" name="artist" id="artist" value="" required />
+            <label>Track</label>
+            <input type="text" name="track" id="track" value="" required />
+            <label>Link</label>
+            <input type="text" name="link" id="link" value="" />
+            <button type="button" name="submit_add_song_button" id="submit_add_song_button">Submit</button>
+        </form>
     </div>
     <!-- main content output -->
     <div class="box">
