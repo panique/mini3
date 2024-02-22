@@ -19,7 +19,7 @@ class Song extends Model
     /**
      * Get all songs from database
      */
-    public function getAllSongs()
+    public function getAllSongs(): false|array
     {
         $sql = "SELECT id, artist, track, link FROM song";
         $query = $this->db->prepare($sql);
@@ -43,7 +43,7 @@ class Song extends Model
      * @param string $track Track
      * @param string $link Link
      */
-    public function addSong($artist, $track, $link)
+    public function addSong(string $artist, string $track, string $link): void
     {
         $sql = "INSERT INTO song (artist, track, link) VALUES (:artist, :track, :link)";
         $query = $this->db->prepare($sql);
@@ -61,7 +61,7 @@ class Song extends Model
      * add/update/delete stuff!
      * @param int $song_id Id of song
      */
-    public function deleteSong($song_id)
+    public function deleteSong(int $song_id): void
     {
         $sql = "DELETE FROM song WHERE id = :song_id";
         $query = $this->db->prepare($sql);
@@ -77,7 +77,7 @@ class Song extends Model
      * Get a song from database
      * @param integer $song_id
      */
-    public function getSong($song_id)
+    public function getSong(int $song_id): mixed
     {
         $sql = "SELECT id, artist, track, link FROM song WHERE id = :song_id LIMIT 1";
         $query = $this->db->prepare($sql);
@@ -104,7 +104,7 @@ class Song extends Model
      * @param string $link Link
      * @param int $song_id Id
      */
-    public function updateSong($artist, $track, $link, $song_id)
+    public function updateSong(string $artist, string $track, string $link, int $song_id): void
     {
         $sql = "UPDATE song SET artist = :artist, track = :track, link = :link WHERE id = :song_id";
         $query = $this->db->prepare($sql);
@@ -120,7 +120,7 @@ class Song extends Model
      * Get simple "stats". This is just a simple demo to show
      * how to use more than one model in a controller (see application/controller/songs.php for more)
      */
-    public function getAmountOfSongs()
+    public function getAmountOfSongs(): ?int
     {
         $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
         $query = $this->db->prepare($sql);

@@ -4,14 +4,14 @@ namespace Mini\Core;
 
 class Application
 {
-    /** @var null The controller */
-    private $url_controller = null;
+    /** @var ?object The controller */
+    private ?object $url_controller = null;
 
-    /** @var null The method (of the above controller), often also named "action" */
-    private $url_action = null;
+    /** @var ?string The method (of the above controller), often also named "action" */
+    private ?string $url_action = null;
 
     /** @var array URL parameters */
-    private $url_params = array();
+    private array $url_params = [];
 
     /**
      * "Start" the application:
@@ -63,7 +63,7 @@ class Application
     /**
      * Get and split the URL
      */
-    private function splitUrl()
+    private function splitUrl(): void
     {
         if (isset($_GET['url'])) {
 
@@ -75,8 +75,8 @@ class Application
             // Put URL parts into according properties
             // By the way, the syntax here is just a short form of if/else, called "Ternary Operators"
             // @see http://davidwalsh.name/php-shorthand-if-else-ternary-operators
-            $this->url_controller = isset($url[0]) ? $url[0] : null;
-            $this->url_action = isset($url[1]) ? $url[1] : null;
+            $this->url_controller = $url[0] ?? null;
+            $this->url_action = $url[1] ?? null;
 
             // Remove controller and action from the split URL
             unset($url[0], $url[1]);

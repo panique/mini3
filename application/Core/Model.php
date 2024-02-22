@@ -7,9 +7,9 @@ use PDO;
 class Model
 {
     /**
-     * @var null Database Connection
+     * @var ?PDO Database Connection
      */
-    public $db = null;
+    public ?PDO $db = null;
 
     /**
      * Whenever model is created, open a database connection.
@@ -26,7 +26,7 @@ class Model
     /**
      * Open the database connection with the credentials from application/config/config.php
      */
-    private function openDatabaseConnection()
+    private function openDatabaseConnection(): void
     {
         // set the (optional) options of the PDO connection. in this case, we set the fetch mode to
         // "objects", which means all results will be objects, like this: $result->user_name !

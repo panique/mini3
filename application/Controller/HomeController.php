@@ -17,7 +17,7 @@ class HomeController
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
      */
-    public function index()
+    public function index(): void
     {
         // load views
         require APP . 'view/_templates/header.php';
@@ -30,7 +30,7 @@ class HomeController
      * This method handles what happens when you move to http://yourproject/home/exampleone
      * The camelCase writing is just for better readability. The method name is case-insensitive.
      */
-    public function exampleOne()
+    public function exampleOne(): void
     {
         // load views
         require APP . 'view/_templates/header.php';
@@ -43,7 +43,7 @@ class HomeController
      * This method handles what happens when you move to http://yourproject/home/exampletwo
      * The camelCase writing is just for better readability. The method name is case-insensitive.
      */
-    public function exampleTwo()
+    public function exampleTwo(): void
     {
         // load views
         require APP . 'view/_templates/header.php';
